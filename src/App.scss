@@ -1,8 +1,5 @@
 @import "./index.scss";
 
-$header-height: 44px;
-$sideber-width: 300px;
-
 .todo {
   display: grid;
   grid-template-rows: $header-height calc(100vh - $header-height);
@@ -26,34 +23,5 @@ $sideber-width: 300px;
   &_content {
     grid-row: 2/-1;
     grid-column: 2/-1;
-  }
-}
-
-// HEADER
-
-.header {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-
-  background-color: $primary;
-  height: $header-height;
-  padding: 5px 20px;
-
-  &__logo {
-    font-size: 2.4rem;
-    color: $white;
-  }
-
-  &__text {
-    flex: 1;
-    color: $white;
-
-    & > h1 {
-      font-size: 2.4rem;
-    }
-  }
-  &__search {
-    min-width: 300px;
   }
 }
