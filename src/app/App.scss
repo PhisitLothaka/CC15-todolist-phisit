@@ -31,6 +31,31 @@
   flex-direction: column;
   gap: 10;
   padding: 20px 30px;
-  background-color: wheat;
   height: calc(100vh - $header-height);
+}
+
+.accordion {
+  &__toggle {
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.8rem;
+    font-weight: 900;
+    padding: 10px;
+
+    &__text {
+      font-weight: inherit;
+    }
+
+    &__icon {
+      cursor: pointer;
+    }
+
+    &__active {
+      transform: rotate(-90deg);
+    }
+  }
 }

@@ -7,7 +7,9 @@
   &__item {
     display: flex;
     gap: 15px;
-    font-size: 2rem;
+    font-size: 1.8rem;
+    font-weight: 400;
+    cursor: pointer;
     padding: 10px;
 
     &:hover {
@@ -18,7 +20,12 @@
     }
 
     &__text {
-      font-weight: 500;
+      font-weight: inherit;
     }
   }
+}
+
+.active {
+  font-weight: 800;
+  background-color: $grey-light;
 }

@@ -17,21 +17,40 @@ function App() {
       </div>
       <div className="todo__sidebar">
         <aside className="sidebar">
-          <section className="sidebar__category"></section>
-          <ul className="list">
-            <Listitem
-              text="Inbox"
-              icon={<FaInbox className="list__item__icon" />}
-            />
-            <Listitem
-              text="Today"
-              icon={<FaCalendar className="list__item__icon" />}
-            />
-            <Listitem
-              text="Next 7 days"
-              icon={<FaCalendarAlt className="list__item__icon" />}
-            />
-          </ul>
+          <section className="sidebar__category">
+            <ul className="list">
+              <Listitem
+                text="Inbox"
+                icon={<FaInbox className="list__item__icon" />}
+                active={true}
+              />
+              <Listitem
+                text="Today"
+                icon={<FaCalendar className="list__item__icon" />}
+                active={false}
+              />
+              <Listitem
+                text="Next 7 days"
+                icon={<FaCalendarAlt className="list__item__icon" />}
+                active={false}
+              />
+            </ul>
+          </section>
+          <section className="sidebar__category">
+            <div className="accordion">
+              {/* Toggle */}
+              <div className="accordion__toggle">
+                <li className="accordion__item">
+                  <FaChevronDown className="accordion_item__icon accordion__item__active" />
+                  <p className="accordion__item__text">projects</p>
+                </li>
+              </div>
+              <ul className="list">
+                <Listitem text="project A" icon={<FaInbox />} active={true} />
+                <Listitem text="project B" icon={<FaInbox />} />
+              </ul>
+            </div>
+          </section>
         </aside>
       </div>
       <div className="todo_content">TodoContent</div>
