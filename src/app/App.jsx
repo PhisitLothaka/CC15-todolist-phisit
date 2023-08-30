@@ -3,6 +3,9 @@ import "./App.scss";
 import Header from "../component/Header";
 import Listitem from "../component/Listitem";
 import Lists from "../component/Lists";
+import TodoHeader from "../component/Todo/TodoHeader";
+import TodoCreate from "../component/Todo/TodoCreate";
+
 import {
   FaInbox,
   FaCalendar,
@@ -32,18 +35,6 @@ function App() {
         <aside className="sidebar">
           <section className="sidebar__category">
             <Lists data={generalLists} />
-            {/* <ul className="list">
-              {generalLists.map((obj) => (
-                <Listitem
-                  data={generalLists}
-                  // key={obj.id}
-                  // {...obj}
-                  // text={obj.text}
-                  // icon={obj.icon}
-                  // active={obj.active}
-                />
-              ))}
-            </ul> */}
           </section>
           <section className="sidebar__category">
             <div className="accordion">
@@ -59,7 +50,17 @@ function App() {
           </section>
         </aside>
       </div>
-      <div className="todo_content">TodoContent</div>
+      <div className="todo_content">
+        <main className="todo__container">
+          {/* Header */}
+          <TodoHeader />
+
+          {/* CerateTodo */}
+          <TodoCreate />
+
+          {/* TodoLists */}
+        </main>
+      </div>
     </div>
   );
 }
@@ -72,3 +73,17 @@ export default App;
 //    - Option B (4/5) : render UI เดียวกัน เข่น <Lists/>
 //    - Option c (5/5) : render UI <Lists/> ภายใต้ <accordion> <Lists/> <accordion/>
 // ใช้ props.children
+{
+  /* <ul className="list">
+              {generalLists.map((obj) => (
+                <Listitem
+                  data={generalLists}
+                  // key={obj.id}
+                  // {...obj}
+                  // text={obj.text}
+                  // icon={obj.icon}
+                  // active={obj.active}
+                />
+              ))}
+            </ul> */
+}
