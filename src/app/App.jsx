@@ -5,7 +5,7 @@ import Listitem from "../component/Listitem";
 import Lists from "../component/Lists";
 import TodoHeader from "../component/Todo/TodoHeader";
 import TodoCreate from "../component/Todo/TodoCreate";
-
+import TodoLists from "../component/Todo/TodoLists";
 import {
   FaInbox,
   FaCalendar,
@@ -59,6 +59,7 @@ function App() {
           <TodoCreate />
 
           {/* TodoLists */}
+          <TodoLists />
         </main>
       </div>
     </div>
