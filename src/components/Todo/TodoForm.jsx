@@ -1,6 +1,6 @@
 import styles from "./TodoForm.module.scss";
 import { Button } from "../Common/Button/Button";
-import React from "react";
+import { useState } from "react";
 
 function TodoForm(props) {
   /*
@@ -15,10 +15,18 @@ function TodoForm(props) {
 
 
 */
-  const [isError, setIsError] = React.useState(false);
+  const [isError, setIsError] = useState(false);
+  const [taskInput, setTaskInput] = useState("");
+
+  const handleChange = function (event) {
+    setTaskInput(event.target.value);
+  };
 
   const handleSubmit = function (event) {
     event.preventDefault();
+    // FormValidation
+    // case1 : submit ได้
+    // case2 : submit ไม่ได้ => แสดง Error
     console.log("submit");
   };
 
@@ -30,13 +38,16 @@ function TodoForm(props) {
   return (
     <form className={styles.todo__form__container} onSubmit={handleSubmit}>
       {/*	Body */}
-      <input className={styles.todo__form__input} placeholder="Task Name" />
+      <input
+        className={styles.todo__form__input}
+        placeholder="Task Name"
+        value={taskInput}
+        onChange={handleChange}
+      />
 
       {/*Form Footer */}
       <div className={styles.todo__form__footer}>
-        <p className={styles.todo__error}>
-          {isError ? "Title is required" : null}
-        </p>
+        <p className={styles.todo__error}></p>
         <div className={styles.todo__form__buttons}>
           <Button
             text="Cancel"
