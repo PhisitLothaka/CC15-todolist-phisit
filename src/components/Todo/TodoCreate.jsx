@@ -25,6 +25,8 @@ import { HiPlus } from "react-icons/hi";
 // const [state, setState] useState(innitialState: any) <= array Destructuring
 // element 1 : current State
 // element 2 : Fn สำหรับ SetState
+// เมื่อ State เปลี่ยน Function Conponent จะ Rerender
+// Rerender 1 ครั้ง === Code ทั้งหมดใน FC จะถูกรันใหม่ 1 ครั้ง
 
 //#1 : Fc = Function Component (Render)
 function TodoCreate() {
