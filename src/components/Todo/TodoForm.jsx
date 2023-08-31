@@ -1,5 +1,6 @@
 import styles from "./TodoForm.module.scss";
 import { Button } from "../Common/Button/Button";
+import React from "react";
 
 function TodoForm(props) {
   /*
@@ -7,20 +8,30 @@ function TodoForm(props) {
     textSubmit : strig
   }
 
+  cc1 - Form Hamdle
+  - ใช้
 
 */
+  const [isError, setIsError] = React.useState(false);
+
+  const handleSubmit = function (event) {
+    event.preventDefault();
+    console.log("submit");
+  };
 
   return (
-    <form className={styles.todo__form__container}>
+    <form className={styles.todo__form__container} onSubmit={handleSubmit}>
       {/*	Body */}
       <input className={styles.todo__form__input} placeholder="Task Name" />
 
       {/*Form Footer */}
       <div className={styles.todo__form__footer}>
-        <p className={styles.todo__error}>Title is required</p>
+        <p className={styles.todo__error}>
+          {isError ? "Title is required" : null}
+        </p>
         <div className={styles.todo__form__buttons}>
-          <Button text="Cancel" active={false} />
-          <Button text={props.textSubmit} active={true} />
+          <Button text="Cancel" active={false} type="button" />
+          <Button text={props.textSubmit} active={true} type="submit" />
         </div>
       </div>
     </form>
