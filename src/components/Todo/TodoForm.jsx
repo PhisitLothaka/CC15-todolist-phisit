@@ -6,10 +6,13 @@ function TodoForm(props) {
   /*
   props = {
     textSubmit : strig
+    setIsOpenForm : FN
   }
 
   cc1 - Form Hamdle
   - ใช้
+
+
 
 */
   const [isError, setIsError] = React.useState(false);
@@ -21,6 +24,7 @@ function TodoForm(props) {
 
   const handleCancel = function () {
     console.log("cancel");
+    props.setIsOpenForm(false);
   };
 
   return (
