@@ -37,7 +37,7 @@ function TodoForm(props) {
 
   const handleCancel = function () {
     console.log("cancel");
-    props.setIsOpenForm(false);
+    props.setIsOpenFor(false);
   };
 
   return (
