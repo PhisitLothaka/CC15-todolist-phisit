@@ -29,7 +29,7 @@ import { HiPlus } from "react-icons/hi";
 // Rerender 1 ครั้ง === Code ทั้งหมดใน FC จะถูกรันใหม่ 1 ครั้ง
 
 //#1 : Fc = Function Component (Render)
-function TodoCreate() {
+function TodoCreate({ setTodo, data }) {
   const [isOpenForm, setIsOpenForm] = React.useState(false);
 
   function habdleClick() {
@@ -38,7 +38,12 @@ function TodoCreate() {
   return (
     <>
       {isOpenForm ? (
-        <TodoForm textSubmit="Add Task" setIsOpenForm={setIsOpenForm} />
+        <TodoForm
+          textSubmit="Add Task"
+          data={data}
+          setIsOpenForm={setIsOpenForm}
+          setTodo={setTodo}
+        />
       ) : (
         <div className={styles.todo__create} onClick={habdleClick}>
           <div className={styles.todo__create__button}>

@@ -1,14 +1,40 @@
 import styles from "./TodoLists.module.scss";
-
 import TodoItem from "./TodoItem";
+import { useState } from "react";
+/*
+CRUD = create-Read-Update-Delete
 
-function TodoLists() {
+
+TodoObj
+data = Array<{id:number, task:string, status:boolean, due_date:date}
+
+data = Array[]todoObj
+dataRender = Array[]<TodoItem task= .... done=.... date=..../>
+*/
+
+// CRUD = create-Read-Update-Delete
+
+function TodoLists({ data }) {
+  // CRUD = create-Read-Update-Delete
+
+  const dataRender = data.map((todoObj) => (
+    <TodoItem
+      key={todoObj.id}
+      id={todoObj.id}
+      task={todoObj.task}
+      done={todoObj.status}
+      date={todoObj.due_date}
+    />
+  ));
+
   return (
     <ul className={styles.todo__lists}>
       {/* TodoItem */}
 
-      <TodoItem task="DoHw" done={true} date="31 Aug" />
-      <TodoItem task="drink" done={false} date="1 Sep" />
+      {dataRender}
+
+      {/* <TodoItem task="DoHw" done={true} date="31 Aug" />
+      <TodoItem task="drink" done={false} date="1 Sep" /> */}
     </ul>
   );
 }
