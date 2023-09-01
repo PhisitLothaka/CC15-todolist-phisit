@@ -14,7 +14,7 @@ dataRender = Array[]<TodoItem task= .... done=.... date=..../>
 
 // CRUD = create-Read-Update-Delete
 
-function TodoLists({ data }) {
+function TodoLists({ editTodo, deleteTodo, data }) {
   // CRUD = create-Read-Update-Delete
 
   const dataRender = data.map((todoObj) => (
@@ -24,6 +24,8 @@ function TodoLists({ data }) {
       task={todoObj.task}
       done={todoObj.status}
       date={todoObj.due_date}
+      deleteTodo={deleteTodo}
+      editTodo={editTodo}
     />
   ));
 

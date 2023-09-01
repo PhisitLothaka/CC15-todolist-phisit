@@ -4,12 +4,22 @@ import { HiOutlineCheck } from "react-icons/hi";
 import TodoForm from "./TodoForm";
 import React from "react";
 
-function TodoItem({ id, task, done, date }) {
+function TodoItem({ editTodo, deleteTodo, id, task, done, date }) {
   const [isOpenForm, setIsOpenForm] = React.useState(false);
 
   function clickToEdit() {
     setIsOpenForm(!isOpenForm);
   }
+
+  function clickToDelete() {
+    deleteTodo(id);
+  }
+
+  const toggleStatus = () => {
+    const newTodoObj = { id, task, date, status: !done };
+    editTodo(id, newTodoObj);
+    // props.editTodo()
+  };
   return (
     <>
       {isOpenForm ? (
@@ -21,7 +31,10 @@ function TodoItem({ id, task, done, date }) {
               done ? styles.todo__checkbox__done : ""
             }`}
           >
-            <HiOutlineCheck className={styles.todo__checkbox__icon} />
+            <HiOutlineCheck
+              className={styles.todo__checkbox__icon}
+              onClick={toggleStatus}
+            />
           </div>
           <p
             className={`${styles.todo__task} ${
@@ -35,7 +48,7 @@ function TodoItem({ id, task, done, date }) {
             <span onClick={clickToEdit}>
               <FaPen className={styles.todo__edit} />
             </span>
-            <span>
+            <span onClick={clickToDelete}>
               <FaTrashAlt className={styles.todo__delete} />
             </span>
           </div>

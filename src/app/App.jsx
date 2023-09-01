@@ -43,6 +43,44 @@ function App() {
     setAllTodos((p) => [newTodo, ...p]);
   };
 
+  // delete
+  const deleteTodo = function (todoId) {
+    setAllTodos(allTodos.filter((obj) => obj.id !== todoId));
+  };
+
+  // update
+  const editTodo = function (todoId, newTodoObj) {
+    // console.log(todoId, newTodoObj);
+
+    // #Practice
+    //   let foundedTodo = allTodos.find((todo) => todo.id === todoId);
+    //   console.log(foundedTodo);
+    //   if (!foundedTodo) return;
+    //   const newTodo = Object.assign({}, foundedTodo, newTodoObj);
+
+    //   let foundedIndex = allTodos.findIndex((todo) => todo.id === todoId);
+    //   if (foundedIndex === -1) return;
+
+    //   const newTodoLists = [...allTodos];
+    //   newTodoLists.splice(foundedIndex, 1, newTodo);
+    //   setAllTodos(newTodoLists);
+    // };
+
+    // #Practice #2
+    // const newTodoLists = allTodos.map(function (todo) {
+    //   if (todo.id !== todoId) return todo;
+    //   else return { ...todo, ...newTodoObj };
+    // });
+    // setAllTodos(newTodoLists);
+
+    // #Practice3
+    const newTodoLists = allTodos.reduce((acc, todo) => {
+      if (todo.id !== todoId) acc.push(todo);
+      else acc.push({ ...todo, ...newTodoObj });
+      return acc;
+    }, []);
+    setAllTodos(newTodoLists);
+  };
   return (
     <div className="todo">
       <div className="todo__header">
@@ -55,7 +93,11 @@ function App() {
         <main className="todo__container">
           <TodoHeader />
           <TodoCreate addTodo={addTodo} />
-          <TodoLists data={allTodos} />
+          <TodoLists
+            editTodo={editTodo}
+            deleteTodo={deleteTodo}
+            data={allTodos}
+          />
         </main>
       </div>
     </div>
