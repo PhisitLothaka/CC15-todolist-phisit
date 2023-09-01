@@ -6,6 +6,7 @@ import TodoHeader from "../components/Todo/TodoHeader";
 import TodoCreate from "../components/Todo/TodoCreate";
 import TodoLists from "../components/Todo/TodoLists";
 import { useState } from "react";
+import { nanoid } from "nanoid";
 // -----------------------------------------------------------------------------
 const data = [
   {
@@ -30,6 +31,17 @@ const data = [
 
 function App() {
   const [allTodos, setAllTodos] = useState(data);
+
+  const addTodo = function (taskName) {
+    const newTodo = {
+      id: nanoid(),
+      task: taskName,
+      status: false,
+      due_data: "2023-01-09",
+    };
+    setAllTodos((p) => [newTodo, ...p]);
+  };
+
   return (
     <div className="todo">
       <div className="todo__header">
@@ -41,7 +53,7 @@ function App() {
       <div className="todo__content">
         <main className="todo__container">
           <TodoHeader />
-          <TodoCreate data={allTodos} setTodo={setAllTodos} />
+          <TodoCreate data={allTodos} setTodo={setAllTodos} addTodo={addTodo} />
           <TodoLists data={allTodos} />
         </main>
       </div>

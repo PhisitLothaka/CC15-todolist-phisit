@@ -7,7 +7,6 @@ import React from "react";
 function TodoItem({ id, task, done, date }) {
   const [isOpenForm, setIsOpenForm] = React.useState(false);
 
-  console.log(id);
   function clickToEdit() {
     setIsOpenForm(!isOpenForm);
   }
