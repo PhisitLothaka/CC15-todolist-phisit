@@ -40,9 +40,7 @@ function TodoCreate({ addTodo, setTodo, data }) {
       {isOpenForm ? (
         <TodoForm
           textSubmit="Add Task"
-          data={data}
           setIsOpenForm={setIsOpenForm}
-          setTodo={setTodo}
           addTodo={addTodo}
         />
       ) : (

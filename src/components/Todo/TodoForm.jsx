@@ -46,7 +46,7 @@ function TodoForm(props) {
       setIsError(true);
       return;
     }
-    console.log("submit === create New Todo");
+
     // create NewTodo
     // 1 - ส่ง Request ไปหลังบ้านเพื่อ save ลง Database
     // 2 - ทำการอัพเดท State ของ AllTodo == React ทำการ Rerender

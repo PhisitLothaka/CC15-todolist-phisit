@@ -7,6 +7,7 @@ import TodoCreate from "../components/Todo/TodoCreate";
 import TodoLists from "../components/Todo/TodoLists";
 import { useState } from "react";
 import { nanoid } from "nanoid";
+import dayjs from "dayjs";
 // -----------------------------------------------------------------------------
 const data = [
   {
@@ -37,7 +38,7 @@ function App() {
       id: nanoid(),
       task: taskName,
       status: false,
-      due_data: "2023-01-09",
+      due_date: dayjs().format("YYYY-MM-DD"),
     };
     setAllTodos((p) => [newTodo, ...p]);
   };
@@ -53,7 +54,7 @@ function App() {
       <div className="todo__content">
         <main className="todo__container">
           <TodoHeader />
-          <TodoCreate data={allTodos} setTodo={setAllTodos} addTodo={addTodo} />
+          <TodoCreate addTodo={addTodo} />
           <TodoLists data={allTodos} />
         </main>
       </div>
