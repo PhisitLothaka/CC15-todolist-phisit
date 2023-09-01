@@ -25,7 +25,7 @@ props = {
 */
 function TodoForm(props) {
   const [isError, setIsError] = useState(false);
-  const [taskInput, setTaskInput] = useState("");
+  const [taskInput, setTaskInput] = useState(props.oldTodo?.task || "");
 
   const handleChangeInput = function (event) {
     if (isError) setIsError(false);
@@ -59,7 +59,10 @@ function TodoForm(props) {
     // };
 
     // props.setTodo((prev) => [newTodo, ...prev]);
-    props.addTodo(taskInput);
+    if (props.addTodo) props.addTodo(taskInput);
+    else if (props.editTodo && props.oldTodo) {
+      props.editTodo(props.oldTodo.id, { task: taskInput });
+    }
     props.setIsOpenForm(false);
   };
 
