@@ -57,8 +57,8 @@ function TodoForm(props) {
       status: false,
       due_data: "2023-01-09",
     };
-    const newTodoLists = [newTodo, ...props.data];
-    props.setTodo(newTodoLists);
+
+    props.setTodo((prev) => [newTodoLists, ...prev]);
     props.setIsOpenForm(false);
   };
 
